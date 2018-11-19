@@ -15,32 +15,47 @@ export const fetchRestaurantsError = (error) => ({
   error,
 });
 
-// export const fetchRestaurants = () => dispatch => {
-//   dispatch(fetchRestaurantsRequest());
-//   return fetch('http://localhost:8080/api/restaurants/')
-//     .then(res => {
-//       if (!res.ok) {
-//         throw new Error(res.statusText);
-//       }
-//       return res.json();
-//     })
-//     .then(data =>
-//       dispatch(fetchRestaurantsSuccess(data))
-//     ).catch(err => 
-//       dispatch(fetchRestaurantsError(err))
-//     );
-// }
+export const fetchRestaurants = () => dispatch => {
+  dispatch(fetchRestaurantsRequest());
+  return fetch('http://localhost:8080/api/restaurants/')
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(res.statusText);
+      }
+      return res.json();
+    })
+    .then(data =>
+      dispatch(fetchRestaurantsSuccess(data))
+    ).catch(err => 
+      dispatch(fetchRestaurantsError(err))
+    );
+}
 
-export const FETCH_RESTAURANTS = 'FETCH_RESTAURANTS';
-export const fetchRestaurants = () => ({
-  type: FETCH_RESTAURANTS,
-});
+// export const FETCH_RESTAURANTS = 'FETCH_RESTAURANTS';
+// export const fetchRestaurants = () => ({
+//   type: FETCH_RESTAURANTS,
+// });
 
 export const ADD_RESTAURANT = 'ADD_RESTAURANT';
 export const addRestaurant = (restaurant) => ({
   type: ADD_RESTAURANT,
   restaurant
 });
+
+export const postRestaurant = (value) => dispatch => {
+  return fetch('http://localhost:8080/api/restaurants/', {
+    method: 'POST',
+    headers: { 
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: value
+    }),
+  })
+  .then(res => res.json())
+  .then(restaurant => dispatch(addRestaurant(restaurant)));
+}
 
 export const RANDOMIZE_RESTAURANT = 'RANDOMIZER RESTAURANT';
 export const randomizeRestaurant = (winningRestaurant) => ({

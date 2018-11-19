@@ -8,7 +8,7 @@ class RestaurantList extends React.Component {
   }
 
   render() {
-    const restaurants = this.props.restaurants.map((restaurant, index) => <li key={index}>{restaurant}</li>)
+    const restaurants = this.props.restaurants.map((restaurant, index) => <li key={index}>{restaurant.name}</li>)
     return (
       <ul>
         {restaurants}

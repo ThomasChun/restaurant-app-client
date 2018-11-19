@@ -17,7 +17,7 @@ const store = createStore(restaurantsReducer, applyMiddleware(thunk))
 ReactDOM.render(
   <Provider store={store}>
     <div>
-      <AddRestaurant onSubmitRestaurant={addRestaurant}/>
+      <AddRestaurant />
       <RestaurantList />
       <Randomize randomizeClick={randomizeRestaurant}/>
     </div>

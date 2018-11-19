@@ -3,7 +3,7 @@ import {
   FETCH_RESTAURANTS_REQUEST,
   FETCH_RESTAURANTS_ERROR,
   ADD_RESTAURANT,
-  FETCH_RESTAURANTS,
+  // FETCH_RESTAURANTS,
   RANDOMIZE_RESTAURANT,
 } from '../actions/restaurants';
 
@@ -35,15 +35,16 @@ export default function reducer(state=initialState, action) {
     })
   }
   else if (action.type === ADD_RESTAURANT) {
+    console.log(action.restaurant)
     return Object.assign({}, state, {
       restaurants: [...state.restaurants, action.restaurant]
     })
   }
-  else if (action.type === FETCH_RESTAURANTS) {
-    return Object.assign({}, state, {
-      restaurants: state.restaurants
-    })
-  }
+  // else if (action.type === FETCH_RESTAURANTS) {
+  //   return Object.assign({}, state, {
+  //     restaurants: state.restaurants
+  //   })
+  // }
   else if (action.type === RANDOMIZE_RESTAURANT) {
     return Object.assign({}, state, {
       restaurants: state.restaurants,

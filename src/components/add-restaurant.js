@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { postRestaurant, fetchRestaurants } from '../actions/restaurants';
 
 class AddRestaurant extends React.Component {
   onSubmit(event) {
     event.preventDefault();
 
-    if (this.props.onSubmitRestaurant) {
-      const value = this.input.value;
-      this.props.dispatch(this.props.onSubmitRestaurant(value));
-      this.input.value = '';
-    }
+    const value = this.input.value;
+    console.log('value', value)
+    this.props.dispatch(postRestaurant(value));
+    this.input.value = '';
   }
 
   render() {
