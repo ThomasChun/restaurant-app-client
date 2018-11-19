@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import RestaurantList from './components/restaurant-list';
 import AddRestaurant from './components/add-restaurant';
 import Randomize from './components/randomize';
-import {addRestaurant} from './actions/restaurants';
+import {addRestaurant, randomizeRestaurant} from './actions/restaurants';
 
 const store = createStore(restaurantsReducer, applyMiddleware(thunk))
 
@@ -19,7 +19,7 @@ ReactDOM.render(
     <div>
       <AddRestaurant onSubmitRestaurant={addRestaurant}/>
       <RestaurantList />
-      <Randomize />
+      <Randomize randomizeClick={randomizeRestaurant}/>
     </div>
   </Provider>,
   document.getElementById('root')

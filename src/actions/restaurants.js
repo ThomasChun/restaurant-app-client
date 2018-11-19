@@ -41,3 +41,9 @@ export const addRestaurant = (restaurant) => ({
   type: ADD_RESTAURANT,
   restaurant
 });
+
+export const RANDOMIZE_RESTAURANT = 'RANDOMIZER RESTAURANT';
+export const randomizeRestaurant = (winningRestaurant) => ({
+  type: RANDOMIZE_RESTAURANT,
+  winningRestaurant
+});

@@ -2,35 +2,47 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 class Randomize extends React.Component {
-  onSubmit(event) {
+  handleClick(event) {
     event.preventDefault();
-
-    if (this.props.onSubmitRestaurant) {
-      const value = this.input.value;
-      this.props.dispatch(this.props.onSubmitRestaurant(value));
-      this.input.value = '';
-    }
+    this.props.dispatch(this.props.randomizeClick(this.randomize(this.props.restaurants)));
   }
+  
+  randomize(restaurants) {
+    let currentIndex = restaurants.length, temporaryValue, randomIndex;
+
+    while (0 !== currentIndex) {
+
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      temporaryValue = restaurants[currentIndex];
+      restaurants[currentIndex] = restaurants[randomIndex];
+      restaurants[randomIndex] = temporaryValue;
+    }
+    return restaurants[0];
+  }
+
 
   render() {
     return (
       <div>
         <h2>Randomize Restaurant</h2>
-        <form onSubmit={e => this.onSubmit(e)}>
           <button
             type='submit'
             name='submit'
-            id='randomizeRestaurantButton'>
+            id='randomizeRestaurantButton'
+            onClick={e => this.handleClick(e)}>
             Randomize!
           </button>
-        </form>
+          <p>You are eating at {this.props.winningRestaurant} tonight!</p>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  restaurants: state.restaurants
+  restaurants: state.restaurants,
+  winningRestaurant: state.winningRestaurant
 });
 
 export default connect(mapStateToProps)(Randomize);

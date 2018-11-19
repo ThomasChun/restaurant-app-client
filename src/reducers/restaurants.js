@@ -4,12 +4,14 @@ import {
   FETCH_RESTAURANTS_ERROR,
   ADD_RESTAURANT,
   FETCH_RESTAURANTS,
+  RANDOMIZE_RESTAURANT,
 } from '../actions/restaurants';
 
 const initialState = {
     restaurants: [],
     loading: false,
-    error: null
+    error: null,
+    winningSelection: ''
 }
 
 export default function reducer(state=initialState, action) {
@@ -40,6 +42,12 @@ export default function reducer(state=initialState, action) {
   else if (action.type === FETCH_RESTAURANTS) {
     return Object.assign({}, state, {
       restaurants: state.restaurants
+    })
+  }
+  else if (action.type === RANDOMIZE_RESTAURANT) {
+    return Object.assign({}, state, {
+      restaurants: state.restaurants,
+      winningRestaurant: action.winningRestaurant
     })
   }
   return state;
