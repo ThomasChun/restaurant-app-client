@@ -23,6 +23,8 @@ class AddRestaurant extends React.Component {
             name='addRestaurant'
             id='addRestaurant'
             className='addRestaurant'
+            placeholder='Restaurant...'
+            autoComplete='off'
             ref={input => (this.input = input)} />
           <button
             type='submit'
