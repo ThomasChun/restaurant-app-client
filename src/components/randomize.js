@@ -22,7 +22,6 @@ class Randomize extends React.Component {
     return restaurants[0];
   }
 
-
   render() {
     return (
       <div>
