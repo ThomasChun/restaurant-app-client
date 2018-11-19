@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 class Randomize extends React.Component {
   handleClick(event) {
     event.preventDefault();
-    this.props.dispatch(this.props.randomizeClick(this.randomize(this.props.restaurants)));
+    console.log(this.props.restaurants)
+    let restaurantNames = this.props.restaurants.map(restaurant => restaurant.name)
+    console.log(restaurantNames)
+    this.props.dispatch(this.props.randomizeClick(this.randomize(restaurantNames)));
   }
   
   randomize(restaurants) {

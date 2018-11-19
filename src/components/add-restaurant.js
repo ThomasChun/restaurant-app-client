@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { postRestaurant, fetchRestaurants } from '../actions/restaurants';
+import { postRestaurant } from '../actions/restaurants';
 
 class AddRestaurant extends React.Component {
   onSubmit(event) {

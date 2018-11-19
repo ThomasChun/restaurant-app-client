@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import RestaurantList from './components/restaurant-list';
 import AddRestaurant from './components/add-restaurant';
 import Randomize from './components/randomize';
-import {addRestaurant, randomizeRestaurant} from './actions/restaurants';
+import {randomizeRestaurant} from './actions/restaurants';
 
 const store = createStore(restaurantsReducer, applyMiddleware(thunk))
 
