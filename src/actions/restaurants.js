@@ -1,3 +1,5 @@
+import {CREATE_REACT_APP_BASE_URL} from '../config';
+
 export const FETCH_RESTAURANTS_REQUEST = 'FETCH_RESTAURANTS_REQUEST';
 export const fetchRestaurantsRequest = () => ({
   type: FETCH_RESTAURANTS_REQUEST
@@ -17,7 +19,7 @@ export const fetchRestaurantsError = (error) => ({
 
 export const fetchRestaurants = () => dispatch => {
   dispatch(fetchRestaurantsRequest());
-  return fetch('http://localhost:8080/api/restaurants/')
+  return fetch(`${CREATE_REACT_APP_BASE_URL}/api/restaurants/`)
     .then(res => {
       if (!res.ok) {
         throw new Error(res.statusText);
@@ -43,7 +45,7 @@ export const addRestaurant = (restaurant) => ({
 });
 
 export const postRestaurant = (value) => dispatch => {
-  return fetch('http://localhost:8080/api/restaurants/', {
+  return fetch(`${CREATE_REACT_APP_BASE_URL}/api/restaurants/`, {
     method: 'POST',
     headers: { 
       'Accept': 'application/json',
