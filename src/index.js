@@ -19,7 +19,7 @@ ReactDOM.render(
     <div>
       <AddRestaurant />
       <RestaurantList />
-      <Randomize randomizeClick={randomizeRestaurant}/>
+      <Randomize randomizeRestaurant={randomizeRestaurant}/>
     </div>
   </Provider>,
   document.getElementById('root')

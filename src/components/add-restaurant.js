@@ -7,7 +7,6 @@ class AddRestaurant extends React.Component {
     event.preventDefault();
 
     const value = this.input.value;
-    console.log('value', value)
     this.props.dispatch(postRestaurant(value));
     this.input.value = '';
   }

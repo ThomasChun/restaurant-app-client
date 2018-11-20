@@ -1,6 +1,6 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {fetchRestaurants} from '../actions/restaurants';
+import { connect } from 'react-redux';
+import { fetchRestaurants } from '../actions/restaurants';
 
 class RestaurantList extends React.Component {
   componentDidMount() {
@@ -8,7 +8,14 @@ class RestaurantList extends React.Component {
   }
 
   render() {
-    const restaurants = this.props.restaurants.map((restaurant, index) => <li key={index}>{restaurant.name}</li>)
+    const restaurants = this.props.restaurants.map((restaurant, index) => {
+      return (
+        <li key={index}>
+          <button className='removeBtn'>X</button>
+          {restaurant.name}
+        </li>
+      )
+    })
     return (
       <ul>
         {restaurants}

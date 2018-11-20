@@ -11,7 +11,7 @@ const initialState = {
     restaurants: [],
     loading: false,
     error: null,
-    winningSelection: ''
+    winningRestaurant: ''
 }
 
 export default function reducer(state=initialState, action) {
@@ -35,7 +35,6 @@ export default function reducer(state=initialState, action) {
     })
   }
   else if (action.type === ADD_RESTAURANT) {
-    console.log(action.restaurant)
     return Object.assign({}, state, {
       restaurants: [...state.restaurants, action.restaurant]
     })
@@ -48,7 +47,7 @@ export default function reducer(state=initialState, action) {
   else if (action.type === RANDOMIZE_RESTAURANT) {
     return Object.assign({}, state, {
       restaurants: state.restaurants,
-      winningRestaurant: action.winningRestaurant
+      winningRestaurant: `You are eating at ${action.winningRestaurant} tonight!`
     })
   }
   return state;
