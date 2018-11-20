@@ -22,7 +22,7 @@ class RestaurantInfo extends React.Component {
     return (
       <div>
         <h2>Restaurant Details</h2>
-        <li>Click on a restaurant from the list above to get information!</li>
+        <p>Click on a restaurant from the list above to get information!</p>
       </div>
     )
   }
