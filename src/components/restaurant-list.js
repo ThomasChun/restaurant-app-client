@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchRestaurants, deleteRestaurants } from '../actions/restaurants';
+import { fetchRestaurants, deleteRestaurants, setRestaurantIdState } from '../actions/restaurants';
 
 class RestaurantList extends React.Component {
   componentDidMount() {
@@ -10,7 +10,17 @@ class RestaurantList extends React.Component {
   handleDelete(event) {
     event.preventDefault();
     const value = event.currentTarget.id;
-    this.props.dispatch(deleteRestaurants(value))
+    if (value !== this.props.currentRestaurantId) {
+      this.props.dispatch(deleteRestaurants(value))
+    } else {
+      alert('You cannot delete a restaurant currently being viewed. To delete the current restaurant, click to view another restaurant before deleting.')
+    }
+  }
+
+  handleLabel(event) {
+    event.preventDefault();
+    const value = event.target.id;
+    this.props.dispatch(setRestaurantIdState(value))
   }
 
   render() {
@@ -19,7 +29,7 @@ class RestaurantList extends React.Component {
         <li key={index} id={restaurant.id}>
           <div>
             <button className='delete-button' id={restaurant.id} onClick={e => this.handleDelete(e)}>X</button>
-            <label>{restaurant.name}</label>
+            <label className='restaurant-label' id={restaurant.id} onClick={e => this.handleLabel(e)}>{restaurant.name}</label>
           </div>
         </li>
       )
@@ -33,7 +43,8 @@ class RestaurantList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  restaurants: state.restaurants
+  restaurants: state.restaurants,
+  currentRestaurantId: state.currentRestaurantId
 });
 
 export default connect(mapStateToProps)(RestaurantList);

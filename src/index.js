@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import RestaurantList from './components/restaurant-list';
 import AddRestaurant from './components/add-restaurant';
 import Randomize from './components/randomize';
+import RestaurantInfo from './components/restaurant-info';
 import {randomizeRestaurant} from './actions/restaurants';
 
 const store = createStore(restaurantsReducer, applyMiddleware(thunk))
@@ -20,6 +21,7 @@ ReactDOM.render(
       <AddRestaurant />
       <RestaurantList />
       <Randomize randomizeRestaurant={randomizeRestaurant}/>
+      <RestaurantInfo />
     </div>
   </Provider>,
   document.getElementById('root')
