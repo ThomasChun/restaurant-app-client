@@ -77,4 +77,4 @@ export const deleteRestaurants = (restaurant) => dispatch => {
   })
   .then(data => dispatch(deleteRestaurantSuccess(data)))
   .then(() => dispatch(fetchRestaurants()))
-}
+} 
