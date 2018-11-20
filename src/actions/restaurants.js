@@ -33,11 +33,6 @@ export const fetchRestaurants = () => dispatch => {
     );
 }
 
-// export const FETCH_RESTAURANTS = 'FETCH_RESTAURANTS';
-// export const fetchRestaurants = () => ({
-//   type: FETCH_RESTAURANTS,
-// });
-
 export const ADD_RESTAURANT = 'ADD_RESTAURANT';
 export const addRestaurant = (restaurant) => ({
   type: ADD_RESTAURANT,
@@ -76,5 +71,17 @@ export const deleteRestaurants = (restaurant) => dispatch => {
     method: 'DELETE',
   })
   .then(data => dispatch(deleteRestaurantSuccess(data)))
-  .then(() => dispatch(fetchRestaurants()))
-} 
+  .then(() => dispatch(fetchRestaurants()));
+}
+
+export const SET_RESTAURANT_ID_STATE = 'SET_RESTAURANT_ID_STATE';
+export const setRestaurantIdState = (currentRestaurantId) => ({
+  type: SET_RESTAURANT_ID_STATE,
+  currentRestaurantId,
+})
+
+// export const restaurantInfo = (restaurant) => dispatch => {
+//   return fetch(`${REACT_APP_API_BASE_URL}/api/restaurants/${restaurant}`, {
+//     method: 'GET',
+//   })
+// }

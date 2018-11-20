@@ -3,16 +3,17 @@ import {
   FETCH_RESTAURANTS_REQUEST,
   FETCH_RESTAURANTS_ERROR,
   ADD_RESTAURANT,
-  // FETCH_RESTAURANTS,
   RANDOMIZE_RESTAURANT,
   DELETE_RESTAURANT_SUCCESS,
+  SET_RESTAURANT_ID_STATE,
 } from '../actions/restaurants';
 
 const initialState = {
     restaurants: [],
     loading: false,
     error: null,
-    winningRestaurant: ''
+    winningRestaurant: '',
+    currentRestaurantId: ''
 }
 
 export default function reducer(state=initialState, action) {
@@ -40,11 +41,6 @@ export default function reducer(state=initialState, action) {
       restaurants: [...state.restaurants, action.restaurant]
     })
   }
-  // else if (action.type === FETCH_RESTAURANTS) {
-  //   return Object.assign({}, state, {
-  //     restaurants: state.restaurants
-  //   })
-  // }
   else if (action.type === RANDOMIZE_RESTAURANT) {
     return Object.assign({}, state, {
       restaurants: state.restaurants,
@@ -55,6 +51,13 @@ export default function reducer(state=initialState, action) {
     return Object.assign({}, state, {
       restaurants: [...state.restaurants.filter(restaurant => restaurant.id !== action.id)]
     });
+  }
+  else if (action.type === SET_RESTAURANT_ID_STATE) {
+    return Object.assign({}, state, {
+      currentRestaurantId: action.currentRestaurantId,
+      loading: true,
+      error: null
+    })
   }
   return state;
 }
