@@ -5,6 +5,7 @@ import {
   ADD_RESTAURANT,
   // FETCH_RESTAURANTS,
   RANDOMIZE_RESTAURANT,
+  DELETE_RESTAURANT_SUCCESS,
 } from '../actions/restaurants';
 
 const initialState = {
@@ -49,6 +50,11 @@ export default function reducer(state=initialState, action) {
       restaurants: state.restaurants,
       winningRestaurant: `You are eating at ${action.winningRestaurant} tonight!`
     })
+  }
+  else if (action.type === DELETE_RESTAURANT_SUCCESS) {
+    return Object.assign({}, state, {
+      restaurants: [...state.restaurants.filter(restaurant => restaurant.id !== action.id)]
+    });
   }
   return state;
 }

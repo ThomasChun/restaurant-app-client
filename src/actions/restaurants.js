@@ -64,3 +64,17 @@ export const randomizeRestaurant = (winningRestaurant) => ({
   type: RANDOMIZE_RESTAURANT,
   winningRestaurant
 });
+
+export const DELETE_RESTAURANT_SUCCESS = 'DELETE_RESTAURANT_SUCCESS';
+export const deleteRestaurantSuccess = (restaurant) => ({
+  type: DELETE_RESTAURANT_SUCCESS,
+  restaurant,
+})
+
+export const deleteRestaurants = (restaurant) => dispatch => {
+  return fetch(`${REACT_APP_API_BASE_URL}/api/restaurants/${restaurant}`, {
+    method: 'DELETE',
+  })
+  .then(data => dispatch(deleteRestaurantSuccess(data)))
+  .then(() => dispatch(fetchRestaurants()))
+}
