@@ -19,7 +19,7 @@ export const fetchCollectionsError = (error) => ({
 
 export const fetchCollections = () => dispatch => {
   dispatch(fetchCollectionsRequest());
-  return fetch(`${REACT_APP_API_BASE_URL}/api/collections`)
+  return fetch(`${REACT_APP_API_BASE_URL}/api/collections`) 
     .then(res => {
       if (!res.ok) {
         throw new Error(res.statusText);
