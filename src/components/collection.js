@@ -1,33 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { postRestaurant } from '../actions/restaurants';
+import { postCollection } from '../actions/collection';
 
-class AddRestaurant extends React.Component {
+class RestaurantCollections extends React.Component {
   onSubmit(event) {
     event.preventDefault();
 
     const value = this.input.value;
-    this.props.dispatch(postRestaurant(value));
+    this.props.dispatch(postCollection(value));
     this.input.value = '';
   }
 
   render() {
     return (
       <div>
-        <h2>Add Restaurant</h2>
+        <h2>Restaurant Collections</h2>
         <form onSubmit={e => this.onSubmit(e)}>
           <input
             type='text'
-            name='addRestaurant'
-            id='addRestaurant'
-            className='addRestaurant'
-            placeholder='Add restaurant...'
+            name='addCollection'
+            id='addCollection'
+            className='addCollection'
+            placeholder='Add collection...'
             autoComplete='off'
             ref={input => (this.input = input)} />
           <button
             type='submit'
             name='submit'
-            id='addRestaurantButton'>
+            id='addCollectionButton'>
             Add
           </button>
         </form>
@@ -37,7 +37,7 @@ class AddRestaurant extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  restaurants: state.restaurant.restaurants
+  collections: state.collection.collections
 });
 
-export default connect(mapStateToProps)(AddRestaurant);
+export default connect(mapStateToProps)(RestaurantCollections);

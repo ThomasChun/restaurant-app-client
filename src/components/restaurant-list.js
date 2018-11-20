@@ -43,8 +43,8 @@ class RestaurantList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  restaurants: state.restaurants,
-  currentRestaurantId: state.currentRestaurantId
+  restaurants: state.restaurant.restaurants,
+  currentRestaurantId: state.restaurant.currentRestaurantId
 });
 
 export default connect(mapStateToProps)(RestaurantList);

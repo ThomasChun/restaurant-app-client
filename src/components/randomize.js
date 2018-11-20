@@ -41,8 +41,8 @@ class Randomize extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  restaurants: state.restaurants,
-  winningRestaurant: state.winningRestaurant
+  restaurants: state.restaurant.restaurants,
+  winningRestaurant: state.restaurant.winningRestaurant
 });
 
 export default connect(mapStateToProps)(Randomize);

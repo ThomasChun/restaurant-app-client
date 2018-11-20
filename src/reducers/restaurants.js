@@ -8,15 +8,15 @@ import {
   SET_RESTAURANT_ID_STATE,
 } from '../actions/restaurants';
 
-const initialState = {
+export const initialState = {
     restaurants: [],
     loading: false,
     error: null,
     winningRestaurant: '',
-    currentRestaurantId: ''
+    currentRestaurantId: '',
 }
 
-export default function reducer(state=initialState, action) {
+export default function restaurantsReducer(state=initialState, action) {
   if (action.type === FETCH_RESTAURANTS_REQUEST) {
     return Object.assign({}, state, {
       loading: true,
