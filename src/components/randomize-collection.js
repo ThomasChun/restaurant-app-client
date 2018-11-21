@@ -33,6 +33,9 @@ class RandomizeCollection extends React.Component {
   }
 
   render() {
+    if (this.props.collections.length === 0) {
+      return null;
+    }
     return (
       <div>
         <h2>Randomize Collection</h2>
