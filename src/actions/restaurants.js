@@ -17,7 +17,7 @@ export const fetchRestaurantsError = (error) => ({
   error,
 });
 
-export const fetchRestaurants = () => dispatch => {
+export const fetchRestaurants = (collectionId) => dispatch => {
   dispatch(fetchRestaurantsRequest());
   return fetch(`${REACT_APP_API_BASE_URL}/api/restaurants`)
     .then(res => {
@@ -26,9 +26,13 @@ export const fetchRestaurants = () => dispatch => {
       }
       return res.json();
     })
-    .then(data =>
-      dispatch(fetchRestaurantsSuccess(data))
-    ).catch(err => 
+    .then(restaurants => {
+      if (collectionId === 0) {
+        return [];
+      }
+      const filteredRestaurants = restaurants.filter(restaurant => restaurant.collectionId === collectionId);
+      dispatch(fetchRestaurantsSuccess(filteredRestaurants))
+    }).catch(err => 
       dispatch(fetchRestaurantsError(err))
     );
 }
@@ -39,7 +43,7 @@ export const addRestaurant = (restaurant) => ({
   restaurant
 });
 
-export const postRestaurant = (value) => dispatch => {
+export const postRestaurant = (value, collectionId) => dispatch => {
   return fetch(`${REACT_APP_API_BASE_URL}/api/restaurants`, {
     method: 'POST',
     headers: { 
@@ -47,7 +51,8 @@ export const postRestaurant = (value) => dispatch => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      name: value
+      name: value,
+      collectionId,
     }),
   })
   .then(res => res.json())

@@ -6,6 +6,7 @@ import {
   RANDOMIZE_COLLECTION,
   DELETE_COLLECTION_SUCCESS,
   SET_COLLECTION_ID_STATE,
+  SET_COLLECTION_NAME_STATE,
 } from '../actions/collection';
 
 const initialState = {
@@ -13,7 +14,8 @@ const initialState = {
   loading: false,
   error: null,
   winningCollection: '',
-  currentCollectionId: '',
+  currentCollectionId: 0,
+  currentCollectionName: 'Select Collection',
 }
 
 export default function collectionsReducer(state=initialState, action) {
@@ -57,6 +59,12 @@ export default function collectionsReducer(state=initialState, action) {
       currentCollectionId: action.currentCollectionId,
       loading: true,
       error: null
+    })
+  } else if(action.type === SET_COLLECTION_NAME_STATE) {
+    return Object.assign({}, state, {
+      currentCollectionName: action.currentCollectionName,
+      loading: true,
+      error: null,
     })
   }
   return state;

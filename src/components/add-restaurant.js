@@ -5,16 +5,20 @@ import { postRestaurant } from '../actions/restaurants';
 class AddRestaurant extends React.Component {
   onSubmit(event) {
     event.preventDefault();
-
+    const collectionId = this.props.currentCollectionId
     const value = this.input.value;
-    this.props.dispatch(postRestaurant(value));
+    this.props.dispatch(postRestaurant(value, collectionId));
     this.input.value = '';
   }
 
   render() {
+    if (this.props.currentCollectionId === 0) {
+      return null;
+    }
     return (
       <div>
-        <h2>Add Restaurant</h2>
+        <h2>{this.props.currentCollectionName}</h2>
+        <h3>Add Restaurant</h3>
         <form onSubmit={e => this.onSubmit(e)}>
           <input
             type='text'
@@ -37,7 +41,9 @@ class AddRestaurant extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  restaurants: state.restaurant.restaurants
+  restaurants: state.restaurant.restaurants,
+  currentCollectionName: state.collection.currentCollectionName,
+  currentCollectionId: state.collection.currentCollectionId,
 });
 
 export default connect(mapStateToProps)(AddRestaurant);

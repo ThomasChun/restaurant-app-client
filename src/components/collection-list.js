@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchCollections, deleteCollection, setCollectionIdState } from '../actions/collection';
+import { fetchCollections, deleteCollection, setCollectionIdState, setCollectionNameState } from '../actions/collection';
+import { fetchRestaurants } from '../actions/restaurants';
 
 class CollectionList extends React.Component {
   componentDidMount() {
@@ -17,10 +18,22 @@ class CollectionList extends React.Component {
     }
   }
 
+  executeCalls(event) {
+    this.handleLabel(event);
+    this.handleName(event);
+  }
+
   handleLabel(event) {
     event.preventDefault();
     const value = event.target.id;
-    this.props.dispatch(setCollectionIdState(value))
+    this.props.dispatch(setCollectionIdState(value));
+    this.props.dispatch(fetchRestaurants(value))
+  }
+
+  handleName(event) {
+    event.preventDefault();
+    const value = event.currentTarget.className;
+    this.props.dispatch(setCollectionNameState(value))
   }
 
   render() {
@@ -29,8 +42,7 @@ class CollectionList extends React.Component {
         <li key={index} id={collection.id}>
           <div>
             <button className='delete-button' id={collection.id} onClick={e => this.handleDelete(e)}>X</button>
-            <label className='collection-label' id={collection.id} onClick={e => this.handleLabel(e)}>{collection.name}</label>
-          </div>
+            <label className={collection.name} id={collection.id} onClick={e => this.executeCalls(e)}>{collection.name}</label>          </div>
         </li>
       )
     })
@@ -44,7 +56,8 @@ class CollectionList extends React.Component {
 
 const mapStateToProps = state => ({
   collections: state.collection.collections,
-  currentCollectionId: state.collection.currentCollectionId
+  currentCollectionId: state.collection.currentCollectionId,
+  restaurants: state.restaurant.restaurants
 });
 
 export default connect(mapStateToProps)(CollectionList);

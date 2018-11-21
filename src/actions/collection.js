@@ -79,3 +79,9 @@ export const setCollectionIdState = (currentCollectionId) => ({
   type: SET_COLLECTION_ID_STATE,
   currentCollectionId,
 })
+
+export const SET_COLLECTION_NAME_STATE = 'SET_COLLECTION_NAME_STATE';
+export const setCollectionNameState = (currentCollectionName) => ({
+  type: SET_COLLECTION_NAME_STATE,
+  currentCollectionName,
+})
