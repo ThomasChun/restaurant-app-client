@@ -57,7 +57,7 @@ export const postCollection = (value) => dispatch => {
 export const RANDOMIZE_COLLECTION = 'RANDOMIZE_COLLECTION';
 export const randomizeCollection = (winningCollection) => ({
   type: RANDOMIZE_COLLECTION,
-  winningCollection
+  winningCollection,
 });
 
 export const DELETE_COLLECTION_SUCCESS = 'DELETE_COLLECTION_SUCCESS';
