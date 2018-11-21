@@ -26,9 +26,9 @@ class CollectionList extends React.Component {
   handleLabel(event) {
     event.preventDefault();
     const value = event.target.id;
-    this.props.dispatch(clearRestaurantId())
+    this.props.dispatch(clearRestaurantId());
     this.props.dispatch(setCollectionIdState(value));
-    this.props.dispatch(fetchRestaurants(value))
+    this.props.dispatch(fetchRestaurants(value));
   }
 
   handleName(event) {

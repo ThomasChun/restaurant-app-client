@@ -50,7 +50,7 @@ export default function restaurantsReducer(state=initialState, action) {
   }
   else if (action.type === DELETE_RESTAURANT_SUCCESS) {
     return Object.assign({}, state, {
-      restaurants: [...state.restaurants]
+      restaurants: state.restaurants
     });
   }
   else if (action.type === SET_RESTAURANT_ID_STATE) {

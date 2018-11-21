@@ -10,8 +10,9 @@ class RestaurantList extends React.Component {
   handleDelete(event) {
     event.preventDefault();
     const value = event.currentTarget.id;
+    const collectionId = this.props.currentCollectionId;
     if (value !== this.props.currentRestaurantId) {
-      this.props.dispatch(deleteRestaurants(value))
+      this.props.dispatch(deleteRestaurants(value, collectionId))
     } else {
       alert('You cannot delete a restaurant currently being viewed. To delete the current restaurant, click to view another restaurant before deleting.')
     }
@@ -44,7 +45,8 @@ class RestaurantList extends React.Component {
 
 const mapStateToProps = state => ({
   restaurants: state.restaurant.restaurants,
-  currentRestaurantId: state.restaurant.currentRestaurantId
+  currentRestaurantId: state.restaurant.currentRestaurantId,
+  currentCollectionId: state.collection.currentCollectionId
 });
 
 export default connect(mapStateToProps)(RestaurantList);

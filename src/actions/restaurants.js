@@ -70,14 +70,14 @@ export const deleteRestaurantSuccess = () => ({
   type: DELETE_RESTAURANT_SUCCESS,
 })
 
-export const deleteRestaurants = (restaurantId) => dispatch => {
+export const deleteRestaurants = (restaurantId, collectionId) => dispatch => {
   return fetch(`${REACT_APP_API_BASE_URL}/api/restaurants/${restaurantId}`, {
     method: 'DELETE',
   })
   .then(data => {
     dispatch(deleteRestaurantSuccess())
   })
-  .then(() => dispatch(fetchRestaurants(restaurantId)));
+  .then(() => dispatch(fetchRestaurants(collectionId)));
 }
 
 export const SET_RESTAURANT_ID_STATE = 'SET_RESTAURANT_ID_STATE';

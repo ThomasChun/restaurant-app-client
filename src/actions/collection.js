@@ -54,7 +54,7 @@ export const postCollection = (value) => dispatch => {
   .then(collection => dispatch(addCollection(collection)));
 }
 
-export const RANDOMIZE_COLLECTION = 'RANDOMIZER COLLECTION';
+export const RANDOMIZE_COLLECTION = 'RANDOMIZE_COLLECTION';
 export const randomizeCollection = (winningCollection) => ({
   type: RANDOMIZE_COLLECTION,
   winningCollection

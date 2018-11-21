@@ -18,6 +18,8 @@ import RestaurantInfo from './components/restaurant-info';
 import RestaurantCollections from './components/collection';
 import CollectionList from './components/collection-list';
 import {randomizeRestaurant} from './actions/restaurants';
+// import {randomizeCollection} from './actions/collection';
+import RandomizeCollection from './components/randomize-collection';
 
 // const store = createStore(combineReducers, applyMiddleware(thunk))
 
@@ -26,6 +28,7 @@ ReactDOM.render(
     <div>
       <RestaurantCollections />
       <CollectionList />
+      <RandomizeCollection />
       <AddRestaurant />
       <RestaurantList />
       <Randomize randomizeRestaurant={randomizeRestaurant}/>
