@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchCollections, deleteCollection, setCollectionIdState, setCollectionNameState } from '../actions/collection';
-import { fetchRestaurants } from '../actions/restaurants';
+import { fetchRestaurants, clearRestaurantId } from '../actions/restaurants';
 
 class CollectionList extends React.Component {
   componentDidMount() {
@@ -26,6 +26,7 @@ class CollectionList extends React.Component {
   handleLabel(event) {
     event.preventDefault();
     const value = event.target.id;
+    this.props.dispatch(clearRestaurantId())
     this.props.dispatch(setCollectionIdState(value));
     this.props.dispatch(fetchRestaurants(value))
   }

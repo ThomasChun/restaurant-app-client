@@ -6,6 +6,7 @@ import {
   RANDOMIZE_RESTAURANT,
   DELETE_RESTAURANT_SUCCESS,
   SET_RESTAURANT_ID_STATE,
+  CLEAR_RESTAURANT_ID,
 } from '../actions/restaurants';
 
 export const initialState = {
@@ -49,7 +50,7 @@ export default function restaurantsReducer(state=initialState, action) {
   }
   else if (action.type === DELETE_RESTAURANT_SUCCESS) {
     return Object.assign({}, state, {
-      restaurants: [...state.restaurants.filter(restaurant => restaurant.id !== action.id)]
+      restaurants: [...state.restaurants]
     });
   }
   else if (action.type === SET_RESTAURANT_ID_STATE) {
@@ -57,6 +58,11 @@ export default function restaurantsReducer(state=initialState, action) {
       currentRestaurantId: action.currentRestaurantId,
       loading: true,
       error: null
+    })
+  }
+  else if (action.type === CLEAR_RESTAURANT_ID) {
+    return Object.assign({}, state, {
+      currentRestaurantId: ''
     })
   }
   return state;

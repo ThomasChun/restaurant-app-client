@@ -24,6 +24,9 @@ class Randomize extends React.Component {
   }
 
   render() {
+    if (this.props.currentCollectionId === 0) {
+      return null;
+    }
     return (
       <div>
         <h2>Randomize Restaurant</h2>
@@ -42,7 +45,8 @@ class Randomize extends React.Component {
 
 const mapStateToProps = state => ({
   restaurants: state.restaurant.restaurants,
-  winningRestaurant: state.restaurant.winningRestaurant
+  winningRestaurant: state.restaurant.winningRestaurant,
+  currentCollectionId: state.collection.currentCollectionId,
 });
 
 export default connect(mapStateToProps)(Randomize);

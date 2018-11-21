@@ -66,23 +66,29 @@ export const randomizeRestaurant = (winningRestaurant) => ({
 });
 
 export const DELETE_RESTAURANT_SUCCESS = 'DELETE_RESTAURANT_SUCCESS';
-export const deleteRestaurantSuccess = (restaurant) => ({
+export const deleteRestaurantSuccess = () => ({
   type: DELETE_RESTAURANT_SUCCESS,
-  restaurant,
 })
 
-export const deleteRestaurants = (restaurant) => dispatch => {
-  return fetch(`${REACT_APP_API_BASE_URL}/api/restaurants/${restaurant}`, {
+export const deleteRestaurants = (restaurantId) => dispatch => {
+  return fetch(`${REACT_APP_API_BASE_URL}/api/restaurants/${restaurantId}`, {
     method: 'DELETE',
   })
-  .then(data => dispatch(deleteRestaurantSuccess(data)))
-  .then(() => dispatch(fetchRestaurants()));
+  .then(data => {
+    dispatch(deleteRestaurantSuccess())
+  })
+  .then(() => dispatch(fetchRestaurants(restaurantId)));
 }
 
 export const SET_RESTAURANT_ID_STATE = 'SET_RESTAURANT_ID_STATE';
 export const setRestaurantIdState = (currentRestaurantId) => ({
   type: SET_RESTAURANT_ID_STATE,
   currentRestaurantId,
+})
+
+export const CLEAR_RESTAURANT_ID = 'CLEAR_RESTAURANT_ID';
+export const clearRestaurantId = () => ({
+  type: CLEAR_RESTAURANT_ID,
 })
 
 // export const restaurantInfo = (restaurant) => dispatch => {
