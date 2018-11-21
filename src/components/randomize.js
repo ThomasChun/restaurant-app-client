@@ -1,11 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { setRestaurantNameState, setRestaurantIdState } from '../actions/restaurants';
 
 class Randomize extends React.Component {
   handleClick(event) {
     event.preventDefault();
     let restaurantNames = this.props.restaurants.map(restaurant => restaurant.name)
-    this.props.dispatch(this.props.randomizeRestaurant(this.randomize(restaurantNames)));
+    let random = this.props.dispatch(this.props.randomizeRestaurant(this.randomize(restaurantNames)));
+    let winningRestaurant = random.winningRestaurant;
+    this.props.dispatch(setRestaurantNameState(winningRestaurant));
+    winningRestaurant = this.props.restaurants.filter(restaurant => restaurant.name === winningRestaurant);
+    this.props.dispatch(setRestaurantIdState(winningRestaurant[0].id));
   }
   
   randomize(restaurants) {

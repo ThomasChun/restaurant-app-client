@@ -15,10 +15,12 @@ class RestaurantInfo extends React.Component {
       return (
         <div>
           <h2>Restaurant Details</h2>
-          <li>Restaurant Name: {restaurant.name}</li>
-          <li>Restaurant ID: {restaurant.id}</li>
-          <li>Created at: {restaurant.createdAt}</li>
-          <li>Updated at: {restaurant.updatedAt}</li>
+          <h3>{restaurant.name}</h3>
+          <ul>
+            <li>Restaurant ID: {restaurant.id}</li>
+            <li>Created at: {restaurant.createdAt}</li>
+            <li>Updated at: {restaurant.updatedAt}</li>
+          </ul>
         </div>
       )
     }

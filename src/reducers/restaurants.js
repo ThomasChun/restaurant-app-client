@@ -7,6 +7,7 @@ import {
   DELETE_RESTAURANT_SUCCESS,
   SET_RESTAURANT_ID_STATE,
   CLEAR_RESTAURANT_ID,
+  SET_RESTAURANT_NAME_STATE,
 } from '../actions/restaurants';
 
 export const initialState = {
@@ -15,6 +16,7 @@ export const initialState = {
     error: null,
     winningRestaurant: '',
     currentRestaurantId: '',
+    currentCollectionName: 'Select Restaurant',
 }
 
 export default function restaurantsReducer(state=initialState, action) {
@@ -58,6 +60,11 @@ export default function restaurantsReducer(state=initialState, action) {
       currentRestaurantId: action.currentRestaurantId,
       loading: true,
       error: null
+    })
+  }
+  else if (action.type === SET_RESTAURANT_NAME_STATE) {
+    return Object.assign({}, state, {
+      currentRestaurantName: action.currentRestaurantName,
     })
   }
   else if (action.type === CLEAR_RESTAURANT_ID) {

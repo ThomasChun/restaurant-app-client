@@ -86,6 +86,12 @@ export const setRestaurantIdState = (currentRestaurantId) => ({
   currentRestaurantId,
 })
 
+export const SET_RESTAURANT_NAME_STATE = 'SET_RESTAURANT_NAME_STATE'
+export const setRestaurantNameState = (currentRestaurantName) => ({
+  type: SET_RESTAURANT_NAME_STATE,
+  currentRestaurantName,
+})
+
 export const CLEAR_RESTAURANT_ID = 'CLEAR_RESTAURANT_ID';
 export const clearRestaurantId = () => ({
   type: CLEAR_RESTAURANT_ID,
