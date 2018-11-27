@@ -12,7 +12,7 @@ class YelpRestaurantSearch extends React.Component {
     this.props.dispatch(deleteYelpSearch());
     this.props.dispatch(postYelpSearch(name, location));
     this.input.value = '';
-    document.getElementById('location').value = '';
+    // document.getElementById('location').value = '';
   }
 
   render() {
@@ -20,23 +20,19 @@ class YelpRestaurantSearch extends React.Component {
       <div className='yelp-search'>
         <h2>Search for a restaurant!</h2>
         <form onSubmit={e => this.onSubmit(e)}>
-          <p>Search:
-            <input 
+          <p>Search: <input 
             name='search'
             type='text'
             placeholder='In-N-Out'
             autoComplete='off'
             ref={input => (this.input = input)} />
           </p>
-          <p>Location:
-          <input 
+          <p>Location: <input 
             name='location'
             id='location'
             type='text'
             placeholder='Los Angeles, CA'
-            autoComplete='off'
-            // ref={input2 => (this.input = input2)} 
-            />
+            autoComplete='off'/>
           </p>
           <button
             type='submit'

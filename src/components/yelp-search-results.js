@@ -69,6 +69,7 @@ class YelpSearchResults extends React.Component {
             <button className='add-button' id={restaurant.id} onClick={e => this.onClick(e)}>+ Add Restaurant!</button>
             <ul>
               <li><b>Name:</b> <a href={restaurant.url} target='blank'>{restaurant.name}</a></li>
+              <a href={restaurant.url} target='blank'><img src={yelpStars.Yelp_trademark_RGB} alt='yelp logo' className='yelp-trademark-rgb'></img></a>
               <li><b>Address:</b>  {restaurant.address}</li>
               <li><b>Rating:</b>  {stars}</li>
               <li><b>Price:</b>  {restaurant.price}</li>

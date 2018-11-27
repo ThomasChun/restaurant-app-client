@@ -177,3 +177,14 @@ header {
   margin: auto;
   width: 84%;
 }
+
+.yelp-trademark-rgb {
+  width: 70px;
+  height: auto;
+  float: right;
+}
+
+.restaurant-details .yelp-trademark-rgb {
+  margin-top: -10px;
+  padding-right: 110px;
+}
