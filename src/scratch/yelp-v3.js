@@ -1,7 +1,7 @@
 'use strict';
 
 const yelp = require('yelp-fusion');
-const client = yelp.client('2r0FTJAbD1S6Plv0L5qhnPrh2LO24biSJ__-yiYESyzPlRcU5aaCqkTSk-Gi2CA42MjBx4wNNHVWeSUHJDJlZ6p7mbj7pOFpnbxfGcRDS-gTN0Rcr317Jhf1e-7dW3Yx');
+const client = yelp.client(process.env.YELP_API_KEY);
 
 client.search({
   term:'aca grill',
@@ -18,8 +18,8 @@ client.search({
       address: `${restaurant.location.address1}, ${restaurant.location.city}, ${restaurant.location.state} ${restaurant.location.zip_code}`,
       // image: restaurant.image_url,
       // url: restaurant.url,
-    }
-  })
+    };
+  });
   console.log(filteredSearchData);
 }).catch(e => {
   console.log(e);

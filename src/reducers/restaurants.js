@@ -8,6 +8,9 @@ import {
   SET_RESTAURANT_ID_STATE,
   CLEAR_RESTAURANT_ID,
   SET_RESTAURANT_NAME_STATE,
+  FETCH_YELP_SEARCH_RESULTS_SUCCESS,
+  FETCH_YELP_SEARCH_RESULTS_REQUEST,
+  FETCH_YELP_SEARCH_RESULTS_ERROR,
 } from '../actions/restaurants';
 
 export const initialState = {
@@ -17,6 +20,7 @@ export const initialState = {
     winningRestaurant: '',
     currentRestaurantId: '',
     currentCollectionName: 'Select Restaurant',
+    yelpSearchResults: [{searchResult: [], createdAt: '', updatedAt: '', id: ''}],
 }
 
 export default function restaurantsReducer(state=initialState, action) {
@@ -70,6 +74,24 @@ export default function restaurantsReducer(state=initialState, action) {
   else if (action.type === CLEAR_RESTAURANT_ID) {
     return Object.assign({}, state, {
       currentRestaurantId: ''
+    })
+  } else if (action.type === FETCH_YELP_SEARCH_RESULTS_REQUEST) {
+    return Object.assign({}, state, {
+      loading: true,
+      error: null
+    })
+  }
+  else if (action.type === FETCH_YELP_SEARCH_RESULTS_SUCCESS) {
+    return Object.assign({}, state, {
+      loading: false,
+      error: null,
+      yelpSearchResults: action.yelpSearchResults
+    })
+  }
+  else if (action.type === FETCH_YELP_SEARCH_RESULTS_ERROR) {
+    return Object.assign({}, state, {
+      loading: false,
+      error: action.error
     })
   }
   return state;

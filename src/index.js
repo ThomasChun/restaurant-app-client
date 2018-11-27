@@ -2,13 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-// import { createStore, applyMiddleware } from 'redux';
-// import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-
-// import combineReducers from './reducers/reducers';
-// import restaurantsReducer from './reducers/restaurants';
-// import collectionsReducer from './reducers/collections';
 import store from './store';
 
 import RestaurantList from './components/restaurant-list';
@@ -17,22 +11,31 @@ import Randomize from './components/randomize';
 import RestaurantInfo from './components/restaurant-info';
 import RestaurantCollections from './components/collection';
 import CollectionList from './components/collection-list';
-import {randomizeRestaurant} from './actions/restaurants';
-// import {randomizeCollection} from './actions/collection';
+import { randomizeRestaurant } from './actions/restaurants';
 import RandomizeCollection from './components/randomize-collection';
-
-// const store = createStore(combineReducers, applyMiddleware(thunk))
+import YelpRestaurantSearch from './components/yelp-restaurant-search';
+import YelpSearchResults from './components/yelp-search-results';
 
 ReactDOM.render(
   <Provider store={store}>
     <div>
-      <RestaurantCollections />
-      <CollectionList />
-      <RandomizeCollection />
-      <AddRestaurant />
-      <RestaurantList />
-      <Randomize randomizeRestaurant={randomizeRestaurant}/>
-      <RestaurantInfo />
+      <div className='collections'>
+        <RestaurantCollections />
+        <CollectionList />
+        <RandomizeCollection />
+      </div>
+      <div className='restaurants'>
+        <AddRestaurant />
+        <RestaurantList />
+        <Randomize randomizeRestaurant={randomizeRestaurant} />
+      </div>
+      <div className='search-info'>
+        <RestaurantInfo />
+        <div>
+        <YelpRestaurantSearch />
+        <YelpSearchResults />
+        </div>
+      </div>
     </div>
   </Provider>,
   document.getElementById('root')

@@ -4,7 +4,7 @@ import { fetchRestaurants, deleteRestaurants, setRestaurantIdState } from '../ac
 
 class RestaurantList extends React.Component {
   componentDidMount() {
-    this.props.dispatch(fetchRestaurants())
+    this.props.dispatch(fetchRestaurants());
   }
 
   handleDelete(event) {
@@ -21,6 +21,7 @@ class RestaurantList extends React.Component {
   handleLabel(event) {
     event.preventDefault();
     const value = event.target.id;
+    console.log(value)
     this.props.dispatch(setRestaurantIdState(value))
   }
 
@@ -30,7 +31,7 @@ class RestaurantList extends React.Component {
         <li key={index} id={restaurant.id}>
           <div>
             <button className='delete-button' id={restaurant.id} onClick={e => this.handleDelete(e)}>X</button>
-            <label className='restaurant-label' id={restaurant.id} onClick={e => this.handleLabel(e)}>{restaurant.name}</label>
+            <label className='restaurant-label' id={restaurant.id} onClick={e => this.handleLabel(e)}>{restaurant.name} ({restaurant.rating}★)</label>
           </div>
         </li>
       )

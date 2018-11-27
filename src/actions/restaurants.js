@@ -43,7 +43,7 @@ export const addRestaurant = (restaurant) => ({
   restaurant
 });
 
-export const postRestaurant = (value, collectionId) => dispatch => {
+export const postRestaurant = (name, yelpId, address, rating, price, image, url, categories, reviewCount, transactions, phone, collectionId) => dispatch => {
   return fetch(`${REACT_APP_API_BASE_URL}/api/restaurants`, {
     method: 'POST',
     headers: { 
@@ -51,7 +51,17 @@ export const postRestaurant = (value, collectionId) => dispatch => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      name: value,
+      name,
+      yelpId,
+      address,
+      rating,
+      price,
+      image,
+      url,
+      categories,
+      reviewCount,
+      transactions,
+      phone,
       collectionId,
     }),
   })
@@ -97,8 +107,69 @@ export const clearRestaurantId = () => ({
   type: CLEAR_RESTAURANT_ID,
 })
 
-// export const restaurantInfo = (restaurant) => dispatch => {
-//   return fetch(`${REACT_APP_API_BASE_URL}/api/restaurants/${restaurant}`, {
-//     method: 'GET',
-//   })
-// }
+export const FETCH_YELP_SEARCH_RESULTS_REQUEST = 'FETCH_YELP_SEARCH_RESULTS_REQUEST';
+export const fetchYelpSearchResultsRequest = () => ({
+  type: FETCH_YELP_SEARCH_RESULTS_REQUEST
+})
+
+export const FETCH_YELP_SEARCH_RESULTS_SUCCESS = 'FETCH_YELP_SEARCH_RESULTS_SUCCESS';
+export const fetchYelpSearchResultsSuccess = (yelpSearchResults) => ({
+  type: FETCH_YELP_SEARCH_RESULTS_SUCCESS,
+  yelpSearchResults,
+})
+
+export const FETCH_YELP_SEARCH_RESULTS_ERROR = 'FETCH_YELP_SEARCH_RESULTS_ERROR';
+export const fetchYelpSearchResultsError = (error) => ({
+  type: FETCH_YELP_SEARCH_RESULTS_ERROR,
+  error,
+})
+
+export const fetchYelpSearchResults = () => dispatch => {
+  dispatch(fetchYelpSearchResultsRequest());
+  return fetch(`${REACT_APP_API_BASE_URL}/api/yelp`)
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(res.statusText);
+      }
+      return res.json();
+    })
+    .then(res => 
+      dispatch(fetchYelpSearchResultsSuccess(res))
+    ).catch(err => 
+      dispatch(fetchYelpSearchResultsError(err))
+    );
+}
+
+export const YELP_SEARCH = 'YELP_SEARCH';
+export const yelpSearch = () => ({
+  type: YELP_SEARCH,
+})
+
+export const postYelpSearch = (name) => dispatch => {
+  return fetch(`${REACT_APP_API_BASE_URL}/api/yelp`, {
+    method: 'POST',
+    headers: { 
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name,
+    }),
+  })
+  .then(res => res.json())
+  .then(res => dispatch(fetchYelpSearchResults()));
+}
+
+export const DELETE_YELP_SEARCH_SUCCESS = 'DELETE_YELP_SEARCH_SUCCESS';
+export const deleteYelpSearchSuccess = () => ({
+  type: DELETE_YELP_SEARCH_SUCCESS,
+})
+
+export const deleteYelpSearch = () => dispatch => {
+  return fetch(`${REACT_APP_API_BASE_URL}/api/yelp`, {
+    method: 'DELETE',
+  })
+  .then(data => {
+    dispatch(deleteRestaurantSuccess())
+  })
+}
