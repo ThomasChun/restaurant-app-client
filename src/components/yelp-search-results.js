@@ -22,7 +22,7 @@ class YelpSearchResults extends React.Component {
     if (this.props.yelpSearchResults[0] === undefined || this.props.yelpSearchResults[0].searchResult.length === 0) {
       return (
         <div>
-          <h3>Search Yelp! for restaurants to your collection above!</h3>
+          <h3>Search Yelp for restaurants to your collection above!</h3>
         </div>
       )
     } else {
@@ -80,7 +80,7 @@ class YelpSearchResults extends React.Component {
       })
       return (
         <div>
-          <h3>Yelp! Search Results:</h3>
+          <h3>Yelp Search Results:</h3>
           <ul>
             {searchResult}
           </ul>
