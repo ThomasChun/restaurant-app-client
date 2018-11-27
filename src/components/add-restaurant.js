@@ -16,7 +16,7 @@ class AddRestaurant extends React.Component {
       return (
         <div>
           <h2 className='restaurant-h2'>Select a collection!</h2>
-          <p>Select a collection you want to update on the left before you can add restaurants with the Yelp! search to the right!</p>
+          <p>Select a collection you want to update on the left before you can add restaurants with the Yelp search to the right!</p>
         </div>
       )
     }
