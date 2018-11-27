@@ -6,17 +6,13 @@ class YelpRestaurantSearch extends React.Component {
   onSubmit(event) {
     event.preventDefault();
     let name = this.input.value;
+    let location = document.getElementById('location').value
     console.log(name);
+    console.log(location);
     this.props.dispatch(deleteYelpSearch());
-    this.props.dispatch(postYelpSearch(name));
+    this.props.dispatch(postYelpSearch(name, location));
     this.input.value = '';
-    //search should also provide location (los angeles, ca)
-    //run the yelp search function with searchTerm
-    //store the search results in state so it can be displayed on screen (rendered)
-    //allow users to add a specific restaurant from the list 
-    //update restaurants models schema with new key: values
-    //add the restaurant to database
-    //access through endpoint to display restaurants within a collection on the DOM
+    document.getElementById('location').value = '';
   }
 
   render() {
@@ -26,18 +22,22 @@ class YelpRestaurantSearch extends React.Component {
         <form onSubmit={e => this.onSubmit(e)}>
           <p>Search:
             <input 
+            name='search'
             type='text'
             placeholder='In-N-Out'
             autoComplete='off'
             ref={input => (this.input = input)} />
           </p>
-          {/* <p>Location:
+          <p>Location:
           <input 
+            name='location'
+            id='location'
             type='text'
             placeholder='Los Angeles, CA'
             autoComplete='off'
-            ref={input2 => (this.input = input2)} />
-          </p> */}
+            // ref={input2 => (this.input = input2)} 
+            />
+          </p>
           <button
             type='submit'
             name='submit'>

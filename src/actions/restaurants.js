@@ -145,7 +145,7 @@ export const yelpSearch = () => ({
   type: YELP_SEARCH,
 })
 
-export const postYelpSearch = (name) => dispatch => {
+export const postYelpSearch = (name, location) => dispatch => {
   return fetch(`${REACT_APP_API_BASE_URL}/api/yelp`, {
     method: 'POST',
     headers: { 
@@ -154,6 +154,7 @@ export const postYelpSearch = (name) => dispatch => {
     },
     body: JSON.stringify({
       name,
+      location,
     }),
   })
   .then(res => res.json())
