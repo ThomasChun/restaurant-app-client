@@ -29,7 +29,7 @@ class Randomize extends React.Component {
   }
 
   render() {
-    if (this.props.currentCollectionId === 0) {
+    if (this.props.currentCollectionId === 0 || this.props.restaurants.length === 0) {
       return null;
     }
     return (

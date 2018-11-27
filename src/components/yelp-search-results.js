@@ -18,7 +18,6 @@ class YelpSearchResults extends React.Component {
   }
 
   render() {
-    console.log(this.props.yelpSearchResults[0])
     if (this.props.yelpSearchResults[0] === undefined || this.props.yelpSearchResults[0].searchResult.length === 0) {
       return (
         <div>

@@ -18,7 +18,10 @@ import YelpSearchResults from './components/yelp-search-results';
 
 ReactDOM.render(
   <Provider store={store}>
-    <div>
+    <div className='container'>
+      <div className='restaurant-details-container'>
+        <RestaurantInfo />
+      </div>
       <div className='collections'>
         <RestaurantCollections />
         <CollectionList />
@@ -30,11 +33,8 @@ ReactDOM.render(
         <Randomize randomizeRestaurant={randomizeRestaurant} />
       </div>
       <div className='search-info'>
-        <RestaurantInfo />
-        <div>
         <YelpRestaurantSearch />
         <YelpSearchResults />
-        </div>
       </div>
     </div>
   </Provider>,

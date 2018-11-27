@@ -13,7 +13,7 @@ class RestaurantCollections extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='collection'>
         <h2>Restaurant Collections</h2>
         <form onSubmit={e => this.onSubmit(e)}>
           <input
@@ -28,7 +28,7 @@ class RestaurantCollections extends React.Component {
             type='submit'
             name='submit'
             id='addCollectionButton'>
-            Add
+            + Add
           </button>
         </form>
       </div>

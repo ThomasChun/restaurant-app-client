@@ -21,7 +21,6 @@ class RestaurantList extends React.Component {
   handleLabel(event) {
     event.preventDefault();
     const value = event.target.id;
-    console.log(value)
     this.props.dispatch(setRestaurantIdState(value))
   }
 
