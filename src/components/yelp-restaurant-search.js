@@ -20,20 +20,20 @@ class YelpRestaurantSearch extends React.Component {
       <div className='yelp-search'>
         <h2>Search for a restaurant!</h2>
         <form onSubmit={e => this.onSubmit(e)}>
-          <p>Search: <input 
+          <span>Search: <input 
             name='search'
             type='text'
             placeholder='In-N-Out'
             autoComplete='off'
             ref={input => (this.input = input)} />
-          </p>
-          <p>Location: <input 
+          </span>
+          <span>Location: <input 
             name='location'
             id='location'
             type='text'
             placeholder='Los Angeles, CA'
             autoComplete='off'/>
-          </p>
+          </span>
           <button
             type='submit'
             name='submit'>

@@ -71,9 +71,9 @@ class YelpSearchResults extends React.Component {
               <li><b>Name:</b> <a href={restaurant.url} target='blank'>{restaurant.name}</a></li>
               <a href={restaurant.url} target='blank'><img src={yelpStars.Yelp_trademark_RGB} alt='yelp logo' className='yelp-trademark-rgb'></img></a>
               <li><b>Address:</b>  {restaurant.address}</li>
-              <li><b>Rating:</b>  {stars}</li>
+              <li className='stars'><b>Rating:</b>  {stars}</li>
               <li><b>Price:</b>  {restaurant.price}</li>
-              <li><b>Yelp Review Count:</b>  {restaurant.reviewCount}</li>
+              <li><b>Yelp Reviews:</b>  {restaurant.reviewCount}</li>
             </ul>
           </li>
         )

@@ -66,21 +66,21 @@ class RestaurantInfo extends React.Component {
 
       return (
         <div className='restaurant-details'>
-          <h2>Restaurant Details</h2>
-          <img src={yelpStars.Yelp_trademark_RGB} alt='yelp logo' className='yelp-trademark-rgb'></img>
+          <h2><a href={restaurant.url} target='blank'>{restaurant.name}</a></h2>
           <div className='restaurant-info'>
             
             <img src={restaurant.image} alt={restaurant.name} className='yelp-img'></img>
-            <h3><a href={restaurant.url} target='blank'>{restaurant.name}</a></h3>
+            {/* <h3><a href={restaurant.url} target='blank'>{restaurant.name}</a></h3> */}
             
             <ul>
               <li><b>Address:</b>  {restaurant.address}</li>
               <li><b>Phone:</b>  {restaurant.phone}</li>
               <li><b>Rating:</b>  {stars}</li>
               <li><b>Price:</b>  {restaurant.price}</li>
-              <li><b>Yelp! Review Count:</b>  {restaurant.reviewCount}</li>
+              <li><b>Yelp Reviews:</b>  {restaurant.reviewCount}</li>
               <li><b>Categories:</b>  {categories}</li>
               <li><b>Transactions:</b>  {transactions}</li>
+              <li><a href={restaurant.url} target='blank'><img src={yelpStars.Yelp_trademark_RGB} alt='yelp logo' className='yelp-trademark-rgb-details'></img></a></li>
             </ul>
           </div>
         </div>

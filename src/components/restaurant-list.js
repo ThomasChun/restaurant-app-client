@@ -63,10 +63,10 @@ class RestaurantList extends React.Component {
           stars = 'no rating';
       }
       return (
-        <li key={index} id={restaurant.id}>
+        <li key={index} id={restaurant.id} className='restaurant-list-item'>
           <div>
             <button className='delete-button' id={restaurant.id} onClick={e => this.handleDelete(e)}>X</button>
-            <label className='restaurant-label' id={restaurant.id} onClick={e => this.handleLabel(e)}>{stars} {restaurant.name}</label>
+            <label className='restaurant-label' id={restaurant.id} onClick={e => this.handleLabel(e)}><span className='stars'>{stars}</span> {restaurant.name}</label>
           </div>
         </li>
       )

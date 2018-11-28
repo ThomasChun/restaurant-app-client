@@ -12,6 +12,23 @@ body {
   background: rgb(250, 250, 250);
 }
 
+/* remove all underlines on links */
+a {
+  text-decoration: none;
+  color: rgb(0, 177, 236);
+  font-weight: bold;
+}
+
+a:visited { 
+  text-decoration: none; 
+  color: rgb(0, 177, 236); 
+}
+
+a:hover { 
+  text-decoration: none; 
+  color:rgb(0, 132, 255); 
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -27,6 +44,15 @@ li {
 
 .delete-button {
   margin-right: 10px;
+  border-radius: 2px;
+  border: 1px solid rgb(250, 250, 250);
+  color: rgb(117, 115, 115);
+}
+
+.delete-button:hover {
+  background-color: rgb(255, 68, 68);
+  color:white;
+  border: 1px solid rgb(255, 68, 68);
 }
 
 ul, li {
@@ -130,6 +156,14 @@ header {
   margin-top: 0px;
 }
 
+.yelp-search input {
+  margin-left: 4px;
+  width: 250px;
+}
+.yelp-search span {
+  margin-right: 10px;
+}
+
 .restaurant-details-container {
   /* border: 1px solid rgb(25, 196, 253); */
   border: 1px solid rgb(204, 242, 255);
@@ -195,7 +229,36 @@ header {
   float: right;
 }
 
+.yelp-trademark-rgb-details {
+  width: 70px;
+  height: auto;
+  margin-left: -10px;
+}
+
 .restaurant-details .yelp-trademark-rgb {
   margin-top: -10px;
   padding-right: 110px;
+}
+
+.restaurant-label:hover {
+  color: rgb(0, 177, 236);
+  /* font-weight: bold; */
+  /* cursor: pointer; */
+}
+
+.collection-list-name label:hover {
+  color: rgb(0, 177, 236);
+  /* font-weight: bold; */
+  /* cursor: pointer; */
+}
+
+.add-button:hover {
+  background: rgb(25, 196, 253);
+  color: white;
+  border: 2px solid rgb(0, 177, 236);
+}
+
+.stars {
+  vertical-align: middle;
+  margin-right: 3px;
 }

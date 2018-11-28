@@ -41,9 +41,10 @@ class CollectionList extends React.Component {
     const collections = this.props.collections.map((collection, index) => {
       return (
         <li key={index} id={collection.id}>
-          <div>
+          <div className='collection-list-name'>
             <button className='delete-button' id={collection.id} onClick={e => this.handleDelete(e)}>X</button>
-            <label className={collection.name} id={collection.id} onClick={e => this.executeCalls(e)}>{collection.name}</label>          </div>
+            <label className={collection.name} id={collection.id} onClick={e => this.executeCalls(e)}>{collection.name}</label>
+          </div>
         </li>
       )
     })
