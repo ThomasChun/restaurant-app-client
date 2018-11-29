@@ -8,8 +8,8 @@ class RestaurantInfo extends React.Component {
     if (this.props.currentCollectionId === 0) {
       return (
         <div className='restaurant-details'>
-          <h2>Restaurant Details</h2>
-          <p>Click or create a collection below to get started!</p>
+          <h2>Let's Get Started!</h2>
+          <p>Click or create a collection below!</p>
         </div>
       )
     }
@@ -91,7 +91,7 @@ class RestaurantInfo extends React.Component {
     if (this.props.currentCollectionId !== 0) {
       return (
         <div className='restaurant-details'>
-          <h2>Restaurant Details</h2>
+          <h2>Select A Restaurant!</h2>
           <p>Click on a restaurant name from the list below to get information <br></br>or add a restaurant using the built in Yelp search bar!</p>
         </div>
       )

@@ -15,6 +15,15 @@ class YelpSearchResults extends React.Component {
     const restaurant = selectedRestaurant[0];
     const yelpId = restaurant.id;
     const { name, address, rating, price, image, url, categories, reviewCount, transactions, phone } = restaurant;
+    // console.log(this.props.restaurants);
+    // console.log(this.props.restaurants.filter(restaurant => restaurant.name === name));
+    const duplicateCheck = this.props.restaurants.filter(restaurant => restaurant.name === name);
+    if (this.props.currentCollectionId === 0) {
+      return alert('Select a collection on the left before you can add restaurants!')
+    }
+    if (duplicateCheck.length > 0) {
+      return alert('Restaurant is already added on your list!');
+    }
     this.props.dispatch(postRestaurant(name, yelpId, address, rating, price, image, url, categories, reviewCount, transactions, phone, collectionId));
   }
 
@@ -93,5 +102,6 @@ class YelpSearchResults extends React.Component {
 const mapStateToProps = state => ({
   yelpSearchResults: state.restaurant.yelpSearchResults,
   currentCollectionId: state.collection.currentCollectionId,
+  restaurants: state.restaurant.restaurants,
 })
 export default connect(mapStateToProps)(YelpSearchResults);
