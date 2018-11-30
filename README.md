@@ -43,31 +43,31 @@ https://thomas-restaurant-app-client.herokuapp.com/
 
 ![ScreenShot1](src/images/readme/restaurant1.png)
 
-This first screen shot is the starting state of the Restaurant App with some preloaded collections. There are instructions listed for the user throughout the page (Let's get started, Select a collection!, Search for a restaurant!). At this stage, the user can add a collection with the name of their choosing, click on a collection to select it and have the lists of restaurants show up in the second column. The user can also submit a search to the Yelp Fusion database by entering search term, city and state before hitting the search button.
+This first screenshot is the starting state of the Restaurant App with some preloaded collections. There are instructions listed for the user throughout the page (Let's get started, Select a collection!, Search for a restaurant!). At this stage, the user can add a collection with the name of their choosing, click on a collection to select it and have the lists of restaurants show up in the second column. The user can also submit a search to the Yelp Fusion database by entering search term, city and state before hitting the search button.
 
 - - - 
 
 ![ScreenShot2](src/images/readme/restaurant2.png)
 
-This screen shot shows the list of restaurants that have been added to the 'Korean BBQ' collection by the user. The total number of restaurants in the colletion is listed within ( ) next to the collection name. Each restaurant in the collection is rendered with a delete button, Yelp rating, and restaurant name. The instructions at the top of the page have changed to assist users in selecting a restaurant. At this state, the user can click on the restaurant name or the 'randomize' button under the restaurants list to randomly select a restaurant to be displayed at the top of the page.
+This screenshot shows the list of restaurants that have been added to the 'Korean BBQ' collection by the user. The total number of restaurants in the colletion is listed within ( ) next to the collection name. Each restaurant in the collection is rendered with a delete button, Yelp rating, and restaurant name. The instructions at the top of the page have changed to assist users in selecting a restaurant. At this state, the user can click on the restaurant name or the 'randomize' button under the restaurants list to randomly select a restaurant to be displayed at the top of the page.
 
 - - - 
 
 ![ScreenShot3](src/images/readme/restaurant3.png)
 
-This screen shot shows that the user has clicked on the restaurant name of 'Park's BBQ' which changes color on hover. As a result, the restaurant that is clicked on in the list is then displayed at the top of the page with all of the Yelp details or the page in addition to external links to the restaurants Yelp page that can be accessed by clicking on the restaurants title or Yelp logo.
+This screenshot shows that the user has clicked on the restaurant name of 'Park's BBQ' which changes color on hover. As a result, the restaurant that is clicked on in the list is then displayed at the top of the page with all of the Yelp details or the page in addition to external links to the restaurants Yelp page that can be accessed by clicking on the restaurants title or Yelp logo.
 
 - - - 
 
 ![ScreenShot4](src/images/readme/restaurant4.png)
 
-This screen shot shows the results of a user search. The user can provide a search term, search location (city) and select a state from the drop down menu. After submitting a search, the request is sent to the Yelp Fusion API and will return with up with five related results which are then available for the user to add to the currently selected collection. Add a restaurant to a collection by clicking on the '+ Add Restaurant' button at top right of each result. Once a restaurant is added, users can the click on the name and have the restaurant details be rendered at the top of the page.
+This screenshot shows the results of a user search. The user can provide a search term, search location (city) and select a state from the drop down menu. After submitting a search, the request is sent to the Yelp Fusion API and will return with up with five related results which are then available for the user to add to the currently selected collection. Add a restaurant to a collection by clicking on the '+ Add Restaurant' button at top right of each result. Once a restaurant is added, users can the click on the name and have the restaurant details be rendered at the top of the page.
 
 - - - 
 
 ![ScreenShot5](src/images/readme/restaurant5.png)
 
-This screen shot is just a demostration of a user search for 'In-N-Out' in 'Los Angeles, CA'. The user then adds the restaurant to the 'Korean BBQ' collection and 'In-N-Out' is added to the bottom of the restaurants list. Upon user click of 'In-N-Out', the restaurants details are now rendered at the top of the screen. The details provided are restaurant name, address, phone, Yelp rating, price range, Yelp review count, categories, and transactions.
+This screenshot is just a demostration of a user search for 'In-N-Out' in 'Los Angeles, CA'. The user then adds the restaurant to the 'Korean BBQ' collection and 'In-N-Out' is added to the bottom of the restaurants list. Upon user click of 'In-N-Out', the restaurants details are now rendered at the top of the screen. The details provided are restaurant name, address, phone, Yelp rating, price range, Yelp review count, categories, and transactions.
 
 - - - 
 
