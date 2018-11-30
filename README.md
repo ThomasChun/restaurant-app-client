@@ -32,12 +32,13 @@ is located at the top right of every restaurant result. Click on the '+ Add Rest
 to your currently selected Collection and the restaurant will be added to the bottom of your list.
 
 
-
 ## Link to Restaurant App
 
 https://thomas-restaurant-app-client.herokuapp.com/
 
 ## Screenshots of Restaurant App
+
+![ScreenShot](./images/readme/screenshots/restaurant1.png)
 
 ## Tech Stack
 
