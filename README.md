@@ -43,7 +43,7 @@ https://thomas-restaurant-app-client.herokuapp.com/
 
 ![ScreenShot1](src/images/readme/restaurant1.png)
 
-This first screenshot is the starting state of the Restaurant App with some preloaded collections. There are instructions listed for the user throughout the page (Let's get started, Select a collection!, Search for a restaurant!). At this stage, the user can add a collection with the name of their choosing, click on a collection to select it and have the lists of restaurants show up in the second column. The user can also submit a search to the Yelp Fusion database by entering search term, city and state before hitting the search button.
+This screenshot is the starting state of the Restaurant App with some preloaded collections. There are instructions listed for the user throughout the page (Let's get started, Select a collection!, Search for a restaurant!). At this stage, the user can add a collection with the name of their choosing, click on a collection to select it and have the lists of restaurants show up in the second column. The user can also submit a search to the Yelp Fusion database by entering search term, city and state before hitting the search button.
 
 - - - 
 
