@@ -29,7 +29,7 @@ class YelpRestaurantSearch extends React.Component {
             autoComplete='off'
             ref={input => (this.input = input)} />
           </span>
-          <span>Location: <input 
+          <span>City: <input 
             name='location'
             id='location'
             type='text'
