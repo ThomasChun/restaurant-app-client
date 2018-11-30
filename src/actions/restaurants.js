@@ -69,7 +69,7 @@ export const postRestaurant = (name, yelpId, address, rating, price, image, url,
   .then(restaurant => dispatch(addRestaurant(restaurant)));
 }
 
-export const RANDOMIZE_RESTAURANT = 'RANDOMIZER RESTAURANT';
+export const RANDOMIZE_RESTAURANT = 'RANDOMIZE_RESTAURANT';
 export const randomizeRestaurant = (winningRestaurant) => ({
   type: RANDOMIZE_RESTAURANT,
   winningRestaurant

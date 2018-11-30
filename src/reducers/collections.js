@@ -46,7 +46,7 @@ export default function collectionsReducer(state=initialState, action) {
   else if (action.type === RANDOMIZE_COLLECTION) {
     return Object.assign({}, state, {
       collections: state.collections,
-      winningCollection: `You are eating at restaurant from the ${action.winningCollection} collection tonight!`
+      winningCollection: `You are eating at a restaurant from the ${action.winningCollection} collection tonight!`
     })
   }
   else if (action.type === DELETE_COLLECTION_SUCCESS) {
