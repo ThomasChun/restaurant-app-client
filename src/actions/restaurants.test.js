@@ -25,7 +25,6 @@ import {
   FETCH_YELP_SEARCH_RESULTS_ERROR,
   yelpSearch,
   YELP_SEARCH,
-  deleteYelpSearch,
   deleteYelpSearchSuccess,
   DELETE_YELP_SEARCH_SUCCESS,
 } from './restaurants';
