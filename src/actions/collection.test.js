@@ -54,13 +54,6 @@ describe('fetchCollectionsError', () => {
   });
 });
 
-// DO THE FETCH COLLECTIONS -- WITH MOCK FETCH
-//
-//
-//
-//
-// -------------------------------------------
-
 describe('addCollection', () => {
   it('Should return the action', () => {
     const collection = { name: 'test' };
@@ -71,13 +64,6 @@ describe('addCollection', () => {
     });
   });
 });
-
-// DO THE POST COLLECTIONS -- WITH MOCK FETCH
-//
-//
-//
-//
-// -------------------------------------------
 
 describe('randomizeCollection', () => {
   it('Should return the action', () => {
@@ -110,13 +96,6 @@ describe('deleteCollectionSuccess', () => {
     })
   });
 });
-
-// DO THE DELETE COLLECTIONS -- WITH MOCK FETCH
-//
-//
-//
-//
-// -------------------------------------------
 
 describe('setCollectionIdState', () => {
   it('Should return the action', () => {

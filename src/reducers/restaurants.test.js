@@ -13,7 +13,7 @@ describe('reducer', () => {
       loading: true,
       error: null,
     });
-  });
+  }); 
 
   it('Should handle the fetch restaurants success action', () => {
     const state = {
@@ -153,6 +153,21 @@ describe('reducer', () => {
     expect(newState).toEqual({
       loading: false,
       error: 'error',
+    });
+  });
+
+  it('Should handle the initial state when nothing is passed in', () => {
+    const state = undefined;
+    const action = fetchRestaurantsRequest();
+    const newState = reducer(state, action);
+    expect(newState).toEqual({
+      restaurants: [],
+      loading: true,
+      error: null,
+      winningRestaurant: '',
+      currentRestaurantId: '',
+      currentCollectionName: 'Select Restaurant',
+      yelpSearchResults: [{searchResult: [], createdAt: '', updatedAt: '', id: ''}],
     });
   });
 });

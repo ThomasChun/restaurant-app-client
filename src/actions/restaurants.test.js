@@ -60,13 +60,6 @@ describe('fetchRestaurantError', () => {
   });
 });
 
-// DO THE FETCH RESTAURANTS -- WITH MOCK FETCH
-//
-//
-//
-//
-// -------------------------------------------
-
 describe('addRestaurant', () => {
   it('Should return the action', () => {
     const restaurant = 'test';
@@ -77,13 +70,6 @@ describe('addRestaurant', () => {
     });
   });
 });
-
-// DO THE POST RESTAURANTS -- WITH MOCK FETCH
-//
-//
-//
-//
-// -------------------------------------------
 
 describe('randomizeRestaurant', () => {
   it('Should return the action', () => {
@@ -104,13 +90,6 @@ describe('deleteRestaurantSuccess', () => {
     });
   });
 });
-
-// DO THE DELETE RESTAURANTS -- WITH MOCK FETCH
-//
-//
-//
-//
-// -------------------------------------------
 
 describe('setRestaurantIdState', () => {
   it('Should return the action', () => {
@@ -174,13 +153,6 @@ describe('fetchYelpSearchResultsError', () => {
   });
 });
 
-// FETCH YELP SEARCH RESULTS -- WITH MOCK FETCH
-//
-//
-//
-//
-// -------------------------------------------
-
 describe('yelpSearch', () => {
   it('Should return the action', () => {
     const action = yelpSearch();
@@ -190,13 +162,6 @@ describe('yelpSearch', () => {
   });
 });
 
-// POST YELP SEARCH RESULTS -- WITH MOCK FETCH
-//
-//
-//
-//
-// -------------------------------------------
-
 describe('deleteYelpSearchSuccess', () => {
   it('Should return the action', () => {
     const action = deleteYelpSearchSuccess();
@@ -205,10 +170,3 @@ describe('deleteYelpSearchSuccess', () => {
     });
   });
 });
-
-// DELETE YELP SEARCH RESULTS -- WITH MOCK FETCH
-//
-//
-//
-//
-// -------------------------------------------
