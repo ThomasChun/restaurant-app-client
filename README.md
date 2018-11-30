@@ -38,7 +38,7 @@ https://thomas-restaurant-app-client.herokuapp.com/
 
 ## Screenshots of Restaurant App
 
-![ScreenShot](/images/readme/screenshots/restaurant1)
+![ScreenShot](./images/readme/screenshots/restaurant1)
 
 ## Tech Stack
 
